@@ -1,0 +1,19 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    users:
+      path: /plat/**
+      serviceId: plat-service
+  ignored-services: "*" #用*来通配符，忽略从2000端口通过服务名来调用
+  prefix: "/services" #这是所有路径的前缀
+
