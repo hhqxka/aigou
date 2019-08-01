@@ -7,6 +7,14 @@ public class PageList<T> {
     private Long total ;
     private List<T> rows =new ArrayList<T>();
 
+    public PageList() {
+    }
+
+    public PageList(Long total, List<T> rows) {
+        this.total = total;
+        this.rows = rows;
+    }
+
     public Long getTotal() {
         return total;
     }
