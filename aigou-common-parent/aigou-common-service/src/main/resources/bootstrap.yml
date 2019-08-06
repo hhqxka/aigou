@@ -1,0 +1,19 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  profiles:
+      active: dev
+  cloud:
+    config:
+      name: application-common #github上面名称
+      profile: ${spring.profiles.active} #环境
+      label: master #分支
+      discovery:
+        enabled: true #从eureka上面找配置服务
+        service-id: SPRING-CLOUD-CONFIG-SERVER #指定服务名
+server:
+  max-http-header-size: 10240000 #响应头过长400，配置这个解决

@@ -1,0 +1,17 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  profiles:
+      active: dev
+  cloud:
+    config:
+      name: application-product #github上面名称
+      profile: ${spring.profiles.active} #环境
+      label: master #分支
+      discovery:
+        enabled: true #从eureka上面找配置服务
+        service-id: SPRING-CLOUD-CONFIG-SERVER #指定服务名
